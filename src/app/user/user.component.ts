@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUser } from '../models/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -7,6 +8,7 @@ import { IUser } from '../models/user';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {
+  formFromParent = this.service.form;
   @Input() userData:IUser = {
     name: 'Imie i Nazwisko',
     type: 'type1',
@@ -15,7 +17,7 @@ export class UserComponent {
 
   @Output() newItemEvent = new EventEmitter<string>();
 
-  constructor() {}
+  constructor(public service: UserService) {}
 
   prev(name:string) {
     this.newItemEvent.emit(name);
