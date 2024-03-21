@@ -1,0 +1,10 @@
+<section [ngClass]="userData.type">
+  <h1>{{userData.name}}</h1>
+  <p>{{userData.desc}}</p>
+  <footer>
+    <button>Usuń</button>
+    <button (click)="prev(userData.name)">Podgląd</button>
+  </footer>
+</section>
+
+

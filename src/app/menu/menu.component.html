@@ -1,0 +1,10 @@
+<button (click)="addMenuItem(list.length+1)">Dodaj pozycję</button>
+<button (click)="showList = !showList">Pokaz menu</button>
+
+
+<ul *ngIf="showList">
+  <ng-container *ngFor="let item of list" >
+    <li *ngIf="item.name !== 'tytuł2'">{{ item.name }}</li>
+  </ng-container>
+</ul>
+
