@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser } from './models/user';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -24,5 +25,10 @@ export class UserService {
       type: 'type3'
     }
   ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  getUsers(){
+    return this.http.get('/api/users');
+  }
+
 }

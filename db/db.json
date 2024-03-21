@@ -1,16 +1,19 @@
 {
   "users": [
     {
+      "id": 0,
       "name": "Imie Dynamiczne 1",
       "desc": "dsfsdfsdfsdf DSadsfg",
       "type": "type1"
     },
     {
+      "id": 1,
       "name": "Imie Dynamiczne 2",
       "desc": "dsfsdfsdfsdf DSadsfg",
       "type": "type2"
     },
     {
+      "id": 2,
       "name": "Imie Dynamiczne 3",
       "desc": "dsfsdfsdfsdf DSadsfg",
       "type": "type3"

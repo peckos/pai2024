@@ -21,6 +21,13 @@ export class AppComponent {
 
   constructor(private service: UserService){}
 
+  ngOnInit(){
+    this.service.getUsers().subscribe(
+      resp => {
+      console.log('resp: ', resp);
+    })
+  }
+
   addItem(newItem: string) {
     console.log('przyszła wartość z dziecka: ', newItem);
   }
