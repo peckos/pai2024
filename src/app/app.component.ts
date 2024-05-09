@@ -3,6 +3,7 @@ import { IUser } from './models/user';
 import { UserService } from './user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  base64Image:any = '';
   name = new FormControl('');
   title = 'pai';
   showMenu = true;
@@ -35,7 +37,8 @@ export class AppComponent {
 
   constructor(
     private service: UserService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    public domSanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -68,5 +71,18 @@ export class AppComponent {
         street: '123 Drew Street'
       }
     });
+  }
+
+  loadImage(ev:any){
+    const file: File = ev.target.files[0];
+
+    let reader: FileReader = new FileReader();
+
+    reader.onloadend = (e) => {
+      this.base64Image = reader.result;
+    }
+
+    reader.readAsDataURL(file);
+
   }
 }

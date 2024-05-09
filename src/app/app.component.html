@@ -2,49 +2,43 @@
 <h1>Działa</h1>
 <button (click)="showMenu = !showMenu">ukryj menu</button>
 
-<input type="text" [(ngModel)]="form.input">
+<input type="text" [(ngModel)]="form.input" />
 
-<p>{{form}}</p>
+<p>{{ form }}</p>
 
-
-
-<hr>
+<hr />
 
 <h1>User form</h1>
 <label for="name">Name: </label>
-<input id="name" type="text" [formControl]="name">
+<input id="name" type="text" [formControl]="name" />
 <p>Value: {{ name.value }}</p>
 
-
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-
   <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName">
+  <input id="first-name" type="text" formControlName="firstName" />
 
   <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName">
+  <input id="last-name" type="text" formControlName="lastName" />
 
   <div formGroupName="address">
     <h2>Address</h2>
 
     <label for="street">Street: </label>
-    <input id="street" type="text" formControlName="street">
+    <input id="street" type="text" formControlName="street" />
 
     <label for="city">City: </label>
-    <input id="city" type="text" formControlName="city">
+    <input id="city" type="text" formControlName="city" />
 
     <label for="state">State: </label>
-    <input id="state" type="text" formControlName="state">
+    <input id="state" type="text" formControlName="state" />
 
     <label for="zip">Zip Code: </label>
-    <input id="zip" type="text" formControlName="zip">
+    <input id="zip" type="text" formControlName="zip" />
   </div>
 
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
   <p-button label="Check" pRipple icon="pi pi-check"></p-button>
-
 </form>
-
 
 <!-- Name: <input type="text" [(ngModel)]="userForm.name" maxlength="10"><br>
 Desc: <input type="text" [(ngModel)]="userForm.desc"><br>
@@ -54,11 +48,9 @@ Type: <select [(ngModel)]="userForm.type">
   <option value="type3">Type 3</option>
 </select><br> -->
 
-  <button (click)="updateProfile()">Dodaj</button>
+<button (click)="updateProfile()">Dodaj</button>
 
-
-
-<hr>
+<hr />
 
 <pre>
   <code>
@@ -66,19 +58,16 @@ Type: <select [(ngModel)]="userForm.type">
   </code>
 </pre>
 
-
-
-
-
-
-
-
 <div>
   <app-user
     *ngFor="let item of userDynamicData"
     [userData]="item"
-    (newItemEvent)="addItem($event)"
-    >
-
+    (newItemEvent)="addItem($event)">
   </app-user>
 </div>
+
+<input type="file" (change)="loadImage($event)">
+
+
+<img [src]="domSanitizer.bypassSecurityTrustUrl(base64Image)">
+<img [src]="base64Image">
