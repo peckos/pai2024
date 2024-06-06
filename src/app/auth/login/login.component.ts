@@ -24,6 +24,14 @@ export class LoginComponent {
       }else{
         sessionStorage.setItem("token", response.jwt);
       }
+
+      setTimeout(() => {
+        this.api.me().subscribe((resp)=>{
+   console.log("resp ", resp);
+
+        })
+
+      }, 500);
     });
   }
 }

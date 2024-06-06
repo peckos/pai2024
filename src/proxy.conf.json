@@ -1,5 +1,5 @@
 {
-  "/api": {
+  "/apisdsd": {
     "target": "http://localhost:1337",
     "secure": true,
     "pathRewrite": {

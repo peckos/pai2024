@@ -14,12 +14,13 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+    ): Observable<HttpEvent<unknown>> {
 
+      console.log("request ", request);
 
     let req: HttpRequest<unknown> | null = null;
 
-    const authToken = localStorage.getItem("token");
+    const authToken = sessionStorage.getItem("token");
 
     if (authToken) {
       req = request.clone({
