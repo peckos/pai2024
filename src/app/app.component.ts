@@ -43,9 +43,9 @@ export class AppComponent {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
-    this.service.getUsers().subscribe((resp) => {
-      console.log('resp: ', resp);
-    });
+    // this.service.getUsers().subscribe((resp) => {
+    //   console.log('resp: ', resp);
+    // });
   }
 
   updateName() {
