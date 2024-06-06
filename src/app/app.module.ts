@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserComponent } from './user/user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
+import { ErrorInterceptor } from './core/http/error.interceptor';
+import { JwtInterceptor } from './core/http/jwt.interceptor';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, UserComponent],
@@ -25,7 +27,9 @@ import { PagesModule } from './pages/pages.module';
     AuthModule,
     PagesModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
