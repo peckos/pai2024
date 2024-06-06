@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, UserComponent],
@@ -21,7 +22,8 @@ import { AuthModule } from './auth/auth.module';
     ReactiveFormsModule,
     HttpClientModule,
     ButtonModule,
-    AuthModule
+    AuthModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
